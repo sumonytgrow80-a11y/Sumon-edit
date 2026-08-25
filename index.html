@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SUMON EDIT | Professional Video Editor</title>
+
 <style>
   :root{
     --bg:#08080a;
@@ -17,30 +18,50 @@
     --card2:#1b1b20;
     --border:#26262b;
   }
+
   *{margin:0;padding:0;box-sizing:border-box;}
+
   html{scroll-behavior:smooth;}
+
   body{
     background:var(--bg);
     color:var(--text);
     font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     overflow-x:hidden;
   }
+
   a{text-decoration:none;color:inherit;}
   ul{list-style:none;}
   img{max-width:100%;display:block;}
-  ::selection{background:var(--accent);color:#fff;}
+
+  ::selection{
+    background:var(--accent);
+    color:#fff;
+  }
 
   .glow-text{
     background:linear-gradient(90deg,#fff, var(--accent) 60%, var(--accent2));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
     font-weight:800;
   }
-  b, strong{font-weight:700;color:#fff;text-shadow:0 0 18px rgba(255,255,255,0.15);}
+
+  b,strong{
+    font-weight:700;
+    color:#fff;
+    text-shadow:0 0 18px rgba(255,255,255,0.15);
+  }
 
   /* NAVBAR */
   header{
-    position:fixed;top:0;left:0;width:100%;
-    display:flex;justify-content:space-between;align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     padding:18px 6%;
     background:rgba(8,8,10,0.7);
     backdrop-filter:blur(14px);
@@ -48,243 +69,757 @@
     border-bottom:1px solid var(--border);
     transition:0.4s cubic-bezier(.2,.8,.2,1);
   }
-  .logo{font-weight:800;font-size:1.35rem;letter-spacing:2px;}
-  .logo span{color:var(--accent);text-shadow:0 0 20px var(--glow);}
-  nav ul{display:flex;gap:30px;}
-  nav a{font-size:0.9rem;letter-spacing:1px;color:var(--muted);position:relative;transition:0.3s;}
+
+  .logo{
+    font-weight:800;
+    font-size:1.35rem;
+    letter-spacing:2px;
+  }
+
+  .logo span{
+    color:var(--accent);
+    text-shadow:0 0 20px var(--glow);
+  }
+
+  nav ul{
+    display:flex;
+    gap:30px;
+  }
+
+  nav a{
+    font-size:0.9rem;
+    letter-spacing:1px;
+    color:var(--muted);
+    position:relative;
+    transition:0.3s;
+  }
+
   nav a::after{
-    content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
     background:linear-gradient(90deg,var(--accent),var(--accent2));
     transition:0.35s cubic-bezier(.2,.8,.2,1);
   }
+
   nav a:hover{color:#fff;}
   nav a:hover::after{width:100%;}
-  .menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-  .menu-btn span{width:24px;height:2px;background:#fff;}
+
+  .menu-btn{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+  }
+
+  .menu-btn span{
+    width:24px;
+    height:2px;
+    background:#fff;
+  }
 
   /* HERO */
   .hero{
     min-height:100vh;
-    display:flex;align-items:center;justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     padding:140px 6% 80px;
     position:relative;
     background:
       radial-gradient(ellipse 700px 500px at 85% 15%, rgba(255,31,46,0.16), transparent 65%),
       radial-gradient(ellipse 700px 500px at 10% 85%, rgba(139,63,251,0.16), transparent 65%);
   }
+
   .hero-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:60px;max-width:1200px;width:100%;flex-wrap:wrap;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    max-width:1200px;
+    width:100%;
+    flex-wrap:wrap;
   }
-  .hero-text{flex:1;min-width:300px;}
+
+  .hero-text{
+    flex:1;
+    min-width:300px;
+  }
+
   .hero-text .tag{
-    color:var(--accent);letter-spacing:4px;font-size:0.85rem;font-weight:700;
-    text-transform:uppercase;opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+    color:var(--accent);
+    letter-spacing:4px;
+    font-size:0.85rem;
+    font-weight:700;
+    text-transform:uppercase;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) forwards;
     text-shadow:0 0 20px var(--glow);
   }
+
   .hero-text h1{
-    font-size:3.4rem;line-height:1.1;margin:16px 0;font-weight:800;
-    opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.15s forwards;
+    font-size:3.4rem;
+    line-height:1.1;
+    margin:16px 0;
+    font-weight:800;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.15s forwards;
   }
+
   .hero-text h2{
-    font-size:1.4rem;font-weight:600;color:var(--muted);margin-bottom:18px;
-    opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.3s forwards;
+    font-size:1.4rem;
+    font-weight:600;
+    color:var(--muted);
+    margin-bottom:18px;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.3s forwards;
   }
+
   .hero-text p{
-    color:var(--muted);max-width:480px;margin-bottom:22px;line-height:1.7;font-size:1.02rem;
-    opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.45s forwards;
+    color:var(--muted);
+    max-width:480px;
+    margin-bottom:22px;
+    line-height:1.7;
+    font-size:1.02rem;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.45s forwards;
   }
+
   .tags{
-    display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;
-    opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.6s forwards;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:32px;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.6s forwards;
   }
+
   .tags span{
-    border:1px solid var(--border);padding:7px 16px;border-radius:30px;
-    font-size:0.8rem;color:var(--text);font-weight:600;
+    border:1px solid var(--border);
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:0.8rem;
+    color:var(--text);
+    font-weight:600;
     background:rgba(255,255,255,0.03);
     transition:0.3s;
   }
-  .tags span:hover{border-color:var(--accent);box-shadow:0 0 20px var(--glow);color:#fff;}
+
+  .tags span:hover{
+    border-color:var(--accent);
+    box-shadow:0 0 20px var(--glow);
+    color:#fff;
+  }
+
   .btn-group{
-    display:flex;gap:16px;flex-wrap:wrap;
-    opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.75s forwards;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.75s forwards;
   }
+
   .btn{
-    padding:14px 30px;border-radius:8px;font-size:0.9rem;letter-spacing:1px;
-    font-weight:700;transition:0.35s cubic-bezier(.2,.8,.2,1);cursor:pointer;border:1px solid transparent;
+    padding:14px 30px;
+    border-radius:8px;
+    font-size:0.9rem;
+    letter-spacing:1px;
+    font-weight:700;
+    transition:0.35s cubic-bezier(.2,.8,.2,1);
+    cursor:pointer;
+    border:1px solid transparent;
   }
-  .btn-primary{background:linear-gradient(135deg,var(--accent),#c4001a);color:#fff;box-shadow:0 8px 24px rgba(255,31,46,0.25);}
-  .btn-primary:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 40px var(--glow);}
-  .btn-outline{border:1px solid var(--border);color:var(--text);background:rgba(255,255,255,0.02);}
-  .btn-outline:hover{border-color:var(--accent2);color:#fff;transform:translateY(-4px);box-shadow:0 16px 34px var(--glow2);}
+
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent),#c4001a);
+    color:#fff;
+    box-shadow:0 8px 24px rgba(255,31,46,0.25);
+  }
+
+  .btn-primary:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 16px 40px var(--glow);
+  }
+
+  .btn-outline{
+    border:1px solid var(--border);
+    color:var(--text);
+    background:rgba(255,255,255,0.02);
+  }
+
+  .btn-outline:hover{
+    border-color:var(--accent2);
+    color:#fff;
+    transform:translateY(-4px);
+    box-shadow:0 16px 34px var(--glow2);
+  }
+
   .location{
-    margin-top:26px;font-size:0.82rem;color:var(--muted);letter-spacing:1px;font-weight:600;
-    opacity:0;animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.9s forwards;
+    margin-top:26px;
+    font-size:0.82rem;
+    color:var(--muted);
+    letter-spacing:1px;
+    font-weight:600;
+    opacity:0;
+    animation:fadeUp 0.9s cubic-bezier(.2,.8,.2,1) 0.9s forwards;
   }
 
   .hero-img{
-    flex:0 0 340px;height:430px;border-radius:18px;overflow:hidden;
+    flex:0 0 340px;
+    height:430px;
+    border-radius:18px;
+    overflow:hidden;
     background:linear-gradient(160deg,var(--card),#1c1c20);
     border:1px solid var(--border);
     position:relative;
-    box-shadow:0 30px 70px rgba(0,0,0,0.55), 0 0 60px rgba(255,31,46,0.08);
-    opacity:0;animation:fadeIn 1.1s ease 0.4s forwards, floaty 6s ease-in-out 1.5s infinite;
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.55),
+      0 0 60px rgba(255,31,46,0.08);
+    opacity:0;
+    animation:
+      fadeIn 1.1s ease 0.4s forwards,
+      floaty 6s ease-in-out 1.5s infinite;
   }
-  .hero-img::before{
-    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(180deg, transparent 55%, rgba(255,31,46,0.18));
-  }
-  .hero-img::after{
-    content:"";position:absolute;inset:-2px;z-index:-1;border-radius:20px;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
-    opacity:0.35;filter:blur(18px);
-  }
-  .hero-img img{width:100%;height:100%;object-fit:cover;}
 
-  @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .hero-img::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(255,31,46,0.18)
+    );
+  }
+
+  .hero-img::after{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    z-index:-1;
+    border-radius:20px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    opacity:0.35;
+    filter:blur(18px);
+  }
+
+  .hero-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  @keyframes fadeUp{
+    from{
+      opacity:0;
+      transform:translateY(28px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  @keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+  }
+
+  @keyframes floaty{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
 
   /* SECTION */
-  section{padding:120px 6%;max-width:1200px;margin:0 auto;}
-  .section-tag{color:var(--accent);letter-spacing:4px;font-size:0.8rem;text-transform:uppercase;font-weight:700;text-shadow:0 0 16px var(--glow);}
-  .section-title{font-size:2.3rem;margin:12px 0 44px;font-weight:800;}
-  .reveal{opacity:0;transform:translateY(35px);transition:0.9s cubic-bezier(.2,.8,.2,1);}
-  .reveal.active{opacity:1;transform:translateY(0);}
+  section{
+    padding:120px 6%;
+    max-width:1200px;
+    margin:0 auto;
+  }
 
-  .about-text{max-width:750px;color:var(--muted);font-size:1.08rem;line-height:1.85;}
+  .section-tag{
+    color:var(--accent);
+    letter-spacing:4px;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    font-weight:700;
+    text-shadow:0 0 16px var(--glow);
+  }
 
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .section-title{
+    font-size:2.3rem;
+    margin:12px 0 44px;
+    font-weight:800;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:0.9s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .reveal.active{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  .about-text{
+    max-width:750px;
+    color:var(--muted);
+    font-size:1.08rem;
+    line-height:1.85;
+  }
+
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+
   .card{
     background:linear-gradient(160deg,var(--card),var(--card2));
-    border:1px solid var(--border);border-radius:14px;
-    padding:34px 28px;transition:0.4s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:34px 28px;
+    transition:0.4s cubic-bezier(.2,.8,.2,1);
+    position:relative;
+    overflow:hidden;
   }
+
   .card::before{
-    content:"";position:absolute;inset:0;opacity:0;transition:0.4s;
-    background:radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(255,31,46,0.12), transparent 70%);
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:0.4s;
+    background:radial-gradient(
+      400px 200px at var(--mx,50%) var(--my,0%),
+      rgba(255,31,46,0.12),
+      transparent 70%
+    );
   }
+
   .card:hover::before{opacity:1;}
+
   .card:hover{
     transform:translateY(-10px);
     border-color:var(--accent);
-    box-shadow:0 24px 50px rgba(0,0,0,0.5), 0 0 30px rgba(255,31,46,0.12);
+    box-shadow:
+      0 24px 50px rgba(0,0,0,0.5),
+      0 0 30px rgba(255,31,46,0.12);
   }
-  .card .icon{font-size:1.9rem;margin-bottom:16px;filter:drop-shadow(0 0 12px var(--glow));}
-  .card h3{font-size:1.12rem;margin-bottom:10px;font-weight:700;}
-  .card p{color:var(--muted);font-size:0.92rem;line-height:1.65;}
 
-  .filters{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;}
-  .filter-btn{
-    padding:9px 20px;border:1px solid var(--border);border-radius:30px;
-    font-size:0.8rem;color:var(--muted);cursor:pointer;transition:0.3s;background:transparent;font-weight:600;
+  .card .icon{
+    font-size:1.9rem;
+    margin-bottom:16px;
+    filter:drop-shadow(0 0 12px var(--glow));
   }
-  .filter-btn.active,.filter-btn:hover{border-color:var(--accent);color:#fff;background:rgba(255,31,46,0.1);box-shadow:0 0 18px var(--glow);}
-  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+
+  .card h3{
+    font-size:1.12rem;
+    margin-bottom:10px;
+    font-weight:700;
+  }
+
+  .card p{
+    color:var(--muted);
+    font-size:0.92rem;
+    line-height:1.65;
+  }
+
+  .filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:36px;
+  }
+
+  .filter-btn{
+    padding:9px 20px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    font-size:0.8rem;
+    color:var(--muted);
+    cursor:pointer;
+    transition:0.3s;
+    background:transparent;
+    font-weight:600;
+  }
+
+  .filter-btn.active,
+  .filter-btn:hover{
+    border-color:var(--accent);
+    color:#fff;
+    background:rgba(255,31,46,0.1);
+    box-shadow:0 0 18px var(--glow);
+  }
+
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+
   .project{
-    background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;overflow:hidden;
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
     transition:0.4s cubic-bezier(.2,.8,.2,1);
   }
-  .project:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 45px rgba(0,0,0,0.5);}
+
+  .project:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+    box-shadow:0 20px 45px rgba(0,0,0,0.5);
+  }
+
   .project-thumb{
-    height:185px;background:linear-gradient(150deg,#1a1a1e,#242429);
-    display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.8rem;
+    height:185px;
+    background:linear-gradient(150deg,#1a1a1e,#242429);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--muted);
+    font-size:0.8rem;
     position:relative;
   }
-  .project-thumb::after{content:"▶";position:absolute;font-size:1.7rem;color:rgba(255,255,255,0.22);}
-  .project-body{padding:20px 22px;}
-  .project-body h4{margin-bottom:6px;font-size:1.02rem;font-weight:700;}
-  .project-body p{color:var(--muted);font-size:0.86rem;margin-bottom:15px;}
-  .watch-btn{font-size:0.82rem;color:var(--accent);letter-spacing:1px;font-weight:700;}
 
-  .skills-list{display:flex;flex-wrap:wrap;gap:14px;}
+  .project-thumb::after{
+    content:"▶";
+    position:absolute;
+    font-size:1.7rem;
+    color:rgba(255,255,255,0.22);
+  }
+
+  .project-body{
+    padding:20px 22px;
+  }
+
+  .project-body h4{
+    margin-bottom:6px;
+    font-size:1.02rem;
+    font-weight:700;
+  }
+
+  .project-body p{
+    color:var(--muted);
+    font-size:0.86rem;
+    margin-bottom:15px;
+  }
+
+  .watch-btn{
+    font-size:0.82rem;
+    color:var(--accent);
+    letter-spacing:1px;
+    font-weight:700;
+  }
+
+  .skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
   .skill-pill{
-    padding:11px 22px;border:1px solid var(--border);border-radius:30px;
-    font-size:0.86rem;color:var(--text);background:var(--card);font-weight:600;
+    padding:11px 22px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    font-size:0.86rem;
+    color:var(--text);
+    background:var(--card);
+    font-weight:600;
     transition:0.35s cubic-bezier(.2,.8,.2,1);
   }
-  .skill-pill:hover{border-color:var(--accent2);color:#fff;transform:translateY(-4px);box-shadow:0 12px 26px var(--glow2);}
 
-  .tools-grid{display:flex;gap:26px;flex-wrap:wrap;}
+  .skill-pill:hover{
+    border-color:var(--accent2);
+    color:#fff;
+    transform:translateY(-4px);
+    box-shadow:0 12px 26px var(--glow2);
+  }
+
+  .tools-grid{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+
   .tool-card{
-    flex:1;min-width:220px;background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--border);
-    border-radius:14px;padding:34px;text-align:center;transition:0.4s cubic-bezier(.2,.8,.2,1);
+    flex:1;
+    min-width:220px;
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:34px;
+    text-align:center;
+    transition:0.4s cubic-bezier(.2,.8,.2,1);
   }
-  .tool-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,0,0,0.45);}
-  .tool-logo{width:64px;height:64px;margin:0 auto 16px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(255,255,255,0.15));}
+
+  .tool-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+    box-shadow:0 20px 40px rgba(0,0,0,0.45);
+  }
+
+  .tool-logo{
+    width:64px;
+    height:64px;
+    margin:0 auto 16px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 14px rgba(255,255,255,0.15));
+  }
+
   .tool-fallback{
-    width:64px;height:64px;margin:0 auto 16px;border-radius:14px;
+    width:64px;
+    height:64px;
+    margin:0 auto 16px;
+    border-radius:14px;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:1.3rem;
+    color:#fff;
   }
+
   .tool-card h3{font-weight:700;}
 
   .contact-box{
     background:linear-gradient(160deg,var(--card),#17171b);
-    border:1px solid var(--border);border-radius:18px;
-    padding:64px 6%;text-align:center;position:relative;overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:64px 6%;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
   }
+
   .contact-box::before{
-    content:"";position:absolute;inset:0;
-    background:radial-gradient(circle at 50% 0%, rgba(255,31,46,0.12), transparent 60%);
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(
+      circle at 50% 0%,
+      rgba(255,31,46,0.12),
+      transparent 60%
+    );
   }
-  .contact-box h2{font-size:2.1rem;margin-bottom:12px;font-weight:800;position:relative;}
-  .contact-box p{color:var(--muted);margin-bottom:36px;position:relative;font-size:1.02rem;}
-  .contact-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;position:relative;}
+
+  .contact-box h2{
+    font-size:2.1rem;
+    margin-bottom:12px;
+    font-weight:800;
+    position:relative;
+  }
+
+  .contact-box p{
+    color:var(--muted);
+    margin-bottom:36px;
+    position:relative;
+    font-size:1.02rem;
+  }
+
+  .contact-btns{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    justify-content:center;
+    position:relative;
+  }
+
   .contact-btn{
-    padding:15px 28px;border-radius:10px;font-size:0.9rem;font-weight:700;
-    display:flex;align-items:center;gap:10px;transition:0.35s cubic-bezier(.2,.8,.2,1);border:1px solid var(--border);
+    padding:15px 28px;
+    border-radius:10px;
+    font-size:0.9rem;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:0.35s cubic-bezier(.2,.8,.2,1);
+    border:1px solid var(--border);
   }
-  .contact-btn:hover{transform:translateY(-5px) scale(1.03);}
-  .wa{background:#25D366;color:#0b0b0b;}
-  .wa:hover{box-shadow:0 14px 30px rgba(37,211,102,0.4);}
-  .tg{background:#229ED9;color:#fff;}
-  .tg:hover{box-shadow:0 14px 30px rgba(34,158,217,0.4);}
-  .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;}
-  .ig:hover{box-shadow:0 14px 30px rgba(220,39,67,0.4);}
-  .yt{background:#FF0000;color:#fff;}
-  .yt:hover{box-shadow:0 14px 30px rgba(255,0,0,0.4);}
-  .em{background:transparent;color:var(--text);}
-  .em:hover{border-color:var(--accent);color:#fff;box-shadow:0 14px 30px var(--glow);}
+
+  .contact-btn:hover{
+    transform:translateY(-5px) scale(1.03);
+  }
+
+  .wa{
+    background:#25D366;
+    color:#0b0b0b;
+  }
+
+  .wa:hover{
+    box-shadow:0 14px 30px rgba(37,211,102,0.4);
+  }
+
+  .tg{
+    background:#229ED9;
+    color:#fff;
+  }
+
+  .tg:hover{
+    box-shadow:0 14px 30px rgba(34,158,217,0.4);
+  }
+
+  .ig{
+    background:linear-gradient(
+      45deg,
+      #f09433,
+      #e6683c,
+      #dc2743,
+      #cc2366,
+      #bc1888
+    );
+    color:#fff;
+  }
+
+  .ig:hover{
+    box-shadow:0 14px 30px rgba(220,39,67,0.4);
+  }
+
+  .yt{
+    background:#FF0000;
+    color:#fff;
+  }
+
+  .yt:hover{
+    box-shadow:0 14px 30px rgba(255,0,0,0.4);
+  }
+
+  .em{
+    background:transparent;
+    color:var(--text);
+  }
+
+  .em:hover{
+    border-color:var(--accent);
+    color:#fff;
+    box-shadow:0 14px 30px var(--glow);
+  }
 
   footer{
-    padding:54px 6% 32px;text-align:center;border-top:1px solid var(--border);
-    color:var(--muted);font-size:0.85rem;
+    padding:54px 6% 32px;
+    text-align:center;
+    border-top:1px solid var(--border);
+    color:var(--muted);
+    font-size:0.85rem;
   }
-  footer .flogo{font-size:1.25rem;color:var(--text);font-weight:800;margin-bottom:8px;}
-  footer .flogo span{color:var(--accent);text-shadow:0 0 18px var(--glow);}
-  footer .fmeta{margin:6px 0;}
-  footer .fsocials{display:flex;gap:20px;justify-content:center;margin:20px 0;flex-wrap:wrap;}
-  footer .fsocials a{color:var(--muted);transition:0.3s;font-size:0.85rem;font-weight:600;}
-  footer .fsocials a:hover{color:var(--accent);text-shadow:0 0 12px var(--glow);}
+
+  footer .flogo{
+    font-size:1.25rem;
+    color:var(--text);
+    font-weight:800;
+    margin-bottom:8px;
+  }
+
+  footer .flogo span{
+    color:var(--accent);
+    text-shadow:0 0 18px var(--glow);
+  }
+
+  footer .fmeta{
+    margin:6px 0;
+  }
+
+  footer .fsocials{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    margin:20px 0;
+    flex-wrap:wrap;
+  }
+
+  footer .fsocials a{
+    color:var(--muted);
+    transition:0.3s;
+    font-size:0.85rem;
+    font-weight:600;
+  }
+
+  footer .fsocials a:hover{
+    color:var(--accent);
+    text-shadow:0 0 12px var(--glow);
+  }
 
   @media(max-width:900px){
-    .grid-3{grid-template-columns:repeat(2,1fr);}
-    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
-    .hero-text h1{font-size:2.5rem;}
+    .grid-3{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .portfolio-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-text h1{
+      font-size:2.5rem;
+    }
   }
+
   @media(max-width:640px){
     nav ul{
-      position:fixed;top:64px;right:0;background:#0d0d0f;
-      flex-direction:column;width:220px;padding:20px;
-      transform:translateX(100%);transition:0.35s cubic-bezier(.2,.8,.2,1);border-left:1px solid var(--border);
+      position:fixed;
+      top:64px;
+      right:0;
+      background:#0d0d0f;
+      flex-direction:column;
+      width:220px;
+      padding:20px;
+      transform:translateX(100%);
+      transition:0.35s cubic-bezier(.2,.8,.2,1);
+      border-left:1px solid var(--border);
       height:calc(100vh - 64px);
     }
-    nav ul.open{transform:translateX(0);}
-    .menu-btn{display:flex;}
-    .grid-3{grid-template-columns:1fr;}
-    .portfolio-grid{grid-template-columns:1fr;}
-    .hero-inner{flex-direction:column-reverse;text-align:center;}
-    .hero-text p{margin-inline:auto;}
-    .tags,.btn-group{justify-content:center;}
-    .hero-img{width:100%;max-width:340px;}
+
+    nav ul.open{
+      transform:translateX(0);
+    }
+
+    .menu-btn{
+      display:flex;
+    }
+
+    .grid-3{
+      grid-template-columns:1fr;
+    }
+
+    .portfolio-grid{
+      grid-template-columns:1fr;
+    }
+
+    .hero-inner{
+      flex-direction:column-reverse;
+      text-align:center;
+    }
+
+    .hero-text p{
+      margin-inline:auto;
+    }
+
+    .tags,
+    .btn-group{
+      justify-content:center;
+    }
+
+    .hero-img{
+      width:100%;
+      max-width:340px;
+    }
   }
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">SUMON<span>EDIT</span></div>
+
   <nav>
     <ul id="navList">
       <li><a href="#home">Home</a></li>
@@ -294,134 +829,240 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  <div class="menu-btn" id="menuBtn"><span></span><span></span><span></span></div>
+
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
 
+
 <section class="hero" id="home">
+
   <div class="hero-inner">
+
     <div class="hero-text">
+
       <div class="tag">Video Editor</div>
-      <h1>Hey, I'm <span class="glow-text">Sumon.</span></h1>
+
+      <h1>
+        Hey, I'm <span class="glow-text">Sumon.</span>
+      </h1>
+
       <h2>Professional Video Editor</h2>
-      <p>I create <b>cinematic visuals</b>, <b>motion graphics</b> and engaging video content that turns ideas into <b>powerful stories</b>.</p>
+
+      <p>
+        I create <b>cinematic visuals</b>,
+        <b>motion graphics</b> and engaging video content
+        that turns ideas into <b>powerful stories</b>.
+      </p>
+
       <div class="tags">
         <span>Motion Graphics</span>
         <span>Cinematic Editing</span>
         <span>Documentary Editing</span>
         <span>Short-form Editing</span>
       </div>
+
       <div class="btn-group">
-        <a href="#portfolio" class="btn btn-primary">VIEW MY WORK</a>
-        <a href="#contact" class="btn btn-outline">CONTACT ME</a>
+        <a href="#portfolio" class="btn btn-primary">
+          VIEW MY WORK
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          CONTACT ME
+        </a>
       </div>
-      <div class="location">📍 Based in Sribhumi, Assam, India</div>
+
+      <div class="location">
+        📍 Based in Sribhumi, Assam, India
+      </div>
+
     </div>
+
+
     <div class="hero-img">
       <img src="profile.jpg" alt="Sumon - Video Editor">
     </div>
+
   </div>
+
 </section>
+
 
 <section id="about" class="reveal">
+
   <div class="section-tag">About Me</div>
-  <h2 class="section-title">Who I Am</h2>
-  <p class="about-text">I'm Sumon, a passionate video editor focused on creating <b>cinematic, engaging and visually polished</b> content. I specialize in <b>motion graphics</b>, cinematic edits, documentary-style storytelling and short-form content.</p>
+
+  <h2 class="section-title">
+    Who I Am
+  </h2>
+
+  <p class="about-text">
+    I'm Sumon, a passionate video editor focused on creating
+    <b>cinematic, engaging and visually polished</b> content.
+    I specialize in <b>motion graphics</b>, cinematic edits,
+    documentary-style storytelling and short-form content.
+  </p>
+
 </section>
+
 
 <section id="services" class="reveal">
+
   <div class="section-tag">What I Do</div>
-  <h2 class="section-title">My Services</h2>
+
+  <h2 class="section-title">
+    My Services
+  </h2>
+
   <div class="grid-3">
-    <div class="card"><div class="icon">🎬</div><h3>Motion Graphics</h3><p>Dynamic animated visuals that bring your brand and story to life.</p></div>
-    <div class="card"><div class="icon">🎥</div><h3>Cinematic Video Editing</h3><p>Film-grade edits with rich color, pacing and emotion.</p></div>
-    <div class="card"><div class="icon">📽️</div><h3>Documentary Editing</h3><p>Structured, compelling narratives from raw real-world footage.</p></div>
-    <div class="card"><div class="icon">📺</div><h3>YouTube Video Editing</h3><p>Retention-focused edits built for YouTube audiences.</p></div>
-    <div class="card"><div class="icon">📱</div><h3>Shorts & Reels Editing</h3><p>Fast, punchy vertical edits made for Shorts, Reels and TikTok.</p></div>
-    <div class="card"><div class="icon">✨</div><h3>Visual Effects</h3><p>Subtle to bold VFX that elevate the visual impact of your video.</p></div>
+
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>Motion Graphics</h3>
+      <p>
+        Dynamic animated visuals that bring your brand and story to life.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎥</div>
+      <h3>Cinematic Video Editing</h3>
+      <p>
+        Film-grade edits with rich color, pacing and emotion.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📽️</div>
+      <h3>Documentary Editing</h3>
+      <p>
+        Structured, compelling narratives from raw real-world footage.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📺</div>
+      <h3>YouTube Video Editing</h3>
+      <p>
+        Retention-focused edits built for YouTube audiences.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>Shorts & Reels Editing</h3>
+      <p>
+        Fast, punchy vertical edits made for Shorts, Reels and TikTok.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✨</div>
+      <h3>Visual Effects</h3>
+      <p>
+        Subtle to bold VFX that elevate the visual impact of your video.
+      </p>
+    </div>
+
   </div>
+
 </section>
+
 
 <section id="portfolio" class="reveal">
+
   <div class="section-tag">My Work</div>
-  <h2 class="section-title">Portfolio</h2>
+
+  <h2 class="section-title">
+    Portfolio
+  </h2>
+
   <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="motion">Motion Graphics</button>
-    <button class="filter-btn" data-filter="cinematic">Cinematic</button>
-    <button class="filter-btn" data-filter="doc">Documentary</button>
-    <button class="filter-btn" data-filter="shorts">Shorts/Reels</button>
-    <button class="filter-btn" data-filter="other">Other</button>
+
+    <button class="filter-btn active" data-filter="all">
+      All
+    </button>
+
+    <button class="filter-btn" data-filter="motion">
+      Motion Graphics
+    </button>
+
+    <button class="filter-btn" data-filter="cinematic">
+      Cinematic
+    </button>
+
+    <button class="filter-btn" data-filter="doc">
+      Documentary
+    </button>
+
+    <button class="filter-btn" data-filter="shorts">
+      Shorts/Reels
+    </button>
+
+    <button class="filter-btn" data-filter="other">
+      Other
+    </button>
+
   </div>
+
+
   <div class="portfolio-grid" id="portfolioGrid">
+
     <div class="project" data-cat="motion">
-      <div class="project-thumb">Add Thumbnail</div>
-      <div class="project-body"><h4>Project Title</h4><p>Short description of the project goes here.</p><a href="#" class="watch-btn">Watch Project →</a></div>
+
+      <div class="project-thumb">
+        Add Thumbnail
+      </div>
+
+      <div class="project-body">
+
+        <h4>Project Title</h4>
+
+        <p>
+          Short description of the project goes here.
+        </p>
+
+        <a href="#" class="watch-btn">
+          Watch Project →
+        </a>
+
+      </div>
+
     </div>
+
+
     <div class="project" data-cat="cinematic">
-      <div class="project-thumb">Add Thumbnail</div>
-      <div class="project-body"><h4>Project Title</h4><p>Short description of the project goes here.</p><a href="#" class="watch-btn">Watch Project →</a></div>
+
+      <div class="project-thumb">
+        Add Thumbnail
+      </div>
+
+      <div class="project-body">
+
+        <h4>Project Title</h4>
+
+        <p>
+          Short description of the project goes here.
+        </p>
+
+        <a href="#" class="watch-btn">
+          Watch Project →
+        </a>
+
+      </div>
+
     </div>
+
+
     <div class="project" data-cat="doc">
-      <div class="project-thumb">Add Thumbnail</div>
-      <div class="project-body"><h4>Project Title</h4><p>Short description of the project goes here.</p><a href="#" class="watch-btn">Watch Project →</a></div>
-    </div>
-    <div class="project" data-cat="shorts">
-      <div class="project-thumb">Add Thumbnail</div>
-      <div class="project-body"><h4>Project Title</h4><p>Short description of the project goes here.</p><a href="#" class="watch-btn">Watch Project →</a></div>
-    </div>
-    <div class="project" data-cat="other">
-      <div class="project-thumb">Add Thumbnail</div>
-      <div class="project-body"><h4>Project Title</h4><p>Short description of the project goes here.</p><a href="#" class="watch-btn">Watch Project →</a></div>
-    </div>
-  </div>
-</section>
 
-<section id="skills" class="reveal">
-  <div class="section-tag">Expertise</div>
-  <h2 class="section-title">Skills</h2>
-  <div class="skills-list">
-    <div class="skill-pill">Motion Graphics</div>
-    <div class="skill-pill">Cinematic Editing</div>
-    <div class="skill-pill">Documentary Storytelling</div>
-    <div class="skill-pill">Video Effects</div>
-    <div class="skill-pill">Short-form Editing</div>
-    <div class="skill-pill">Visual Storytelling</div>
-    <div class="skill-pill">Color & Visual Enhancement</div>
-  </div>
-</section>
+      <div class="project-thumb">
+        Add Thumbnail
+      </div>
 
-<section id="tools" class="reveal">
-  <div class="section-tag">Software</div>
-  <h2 class="section-title">Tools I Use</h2>
-  <div class="tools-grid">
-    <div class="tool-card">
-      <img class="tool-logo" src="capcut-logo.png" alt="CapCut" onerror="this.outerHTML='<div class=&quot;tool-fallback&quot;>CC</div>'">
-      <h3>CapCut</h3>
-      <p style="color:var(--muted);margin-top:8px;font-size:0.85rem;">Cinematic & short-form editing</p>
-    </div>
-    <div class="tool-card">
-      <img class="tool-logo" src="alight-logo.png" alt="Alight Motion" onerror="this.outerHTML='<div class=&quot;tool-fallback&quot;>AM</div>'">
-      <h3>Alight Motion</h3>
-      <p style="color:var(--muted);margin-top:8px;font-size:0.85rem;">Motion graphics & mobile editing</p>
-    </div>
-  </div>
-</section>
+      <div class="project-body">
 
-<section id="contact" class="reveal">
-  <div class="contact-box">
-    <h2>Let's Work <span class="glow-text">Together</span></h2>
-    <p>Have a video project in mind? Let's create something <b>great</b>.</p>
-    <div class="contact-btns">
-      <a class="contact-btn wa" target="_blank"
-         href="https://wa.me/916062548063?text=Hi%20Sumon%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20video%20editing%20project.">
-         💬 Chat on WhatsApp</a>
-      <a class="contact-btn tg" target="_blank" href="https://t.me/Sumonofficial78">✈️ Telegram</a>
-      <a class="contact-btn ig" target="_blank" href="https://www.instagram.com/____editor__sumon_sweety?igsi=MXNnbG1nNzliMjhiaQ==">📸 Instagram</a>
-      <a class="contact-btn yt" target="_blank" href="YOUR_YOUTUBE_LINK">▶️ YouTube</a>
-      <a class="contact-btn em" href="mailto:sumonytgrow80@gmail.com">✉️ Email</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <di
+  
